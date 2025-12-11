@@ -1,0 +1,21 @@
+[Unit]
+Description=Pishgoo Auto Trader Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/Pishgoo
+Environment="PATH=/root/Pishgoo/venv/bin:/usr/bin:/usr/local/bin"
+ExecStart=/root/Pishgoo/venv/bin/python3 /root/Pishgoo/services/trader_service.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+
